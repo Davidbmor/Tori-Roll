@@ -1,19 +1,17 @@
 ---
-const { name, amount } = Astro.props;
+import  TIcketItems from "./TIcketItems.astro";
+const { id } = Astro.props;
 ---
 
 <div class="ticket">
-    <h2>Ticket de la mesa <span class="id">2</span></h2>
+    <h2>Ticket de la mesa <span class="id">{id}</span></h2>
     <div class="ticket-items">
         <table>
             <tr>
                 <th>Plato</th>
                 <th>Cantidad</th>
             </tr>
-            <tr>
-                <td>Ejemplo 1</td>
-                <td>1</td>
-            </tr>
+            <TIcketItems name="" amount=""></TIcketItems>
         </table>
     </div>
     <div class="ticket-status">

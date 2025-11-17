@@ -1,0 +1,9 @@
+---
+import PlateCard from "./PlateCard.astro";
+const { section } = Astro.props;
+---
+
+<h1 class="tittle-menu-section">{section}</h1>
+<div class="plate-cards-container">
+    <PlateCard name="Nigiri salmon" amount="3" img="/src/assets/img/sushi.webp"/>
+</div>

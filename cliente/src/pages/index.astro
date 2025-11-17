@@ -3,6 +3,7 @@ import Header from '../components/Header.astro';
 import PlateCard from '../components/PlateCard.astro';
 import Cart from '../components/Cart.astro';
 import '../assets/css/style.css';
+import MenuSection from '../components/MenuSection.astro';
 ---
 
 <html lang="en">
@@ -24,11 +25,7 @@ import '../assets/css/style.css';
 
     <section class="menu-view">
       <div class="menu-section-container">
-        <h1 class="tittle-menu-section">NIGIRIS</h1>
-        <div class="plate-cards-container">
-          <PlateCard name="Nigiri salmon" amount="3" img="/src/assets/img/sushi.webp" />
-          <PlateCard name="Nigiri atún" amount="3" img="/src/assets/img/sushi.webp" />
-        </div>
+        <MenuSection section=""></MenuSection>
       </div>
     </section>
 
