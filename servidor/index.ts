@@ -42,13 +42,24 @@ const pedidos: Record<string, Pedido> = {};
 app.get("/productos", async (req, res) => {
   try {
     const [productos] = await db.query(`
-      SELECT p.id, p.nombre, p.descripcion, p.precio, p.disponible
+      SELECT 
+        p.id,
+        p.nombre,
+        p.tipo,
+        p.cantidad,
+        p.descripcion,
+        p.url_imagen,
+        p.precio,
+        p.disponible
       FROM productos p
       WHERE p.disponible = true
     `);
 
     const [alergenos] = await db.query(`
-      SELECT pa.producto_id, a.nombre, a.icono
+      SELECT 
+        pa.producto_id,
+        a.nombre,
+        a.svg
       FROM producto_alergeno pa
       JOIN alergenos a ON a.id = pa.alergeno_id
     `);
@@ -57,7 +68,7 @@ app.get("/productos", async (req, res) => {
       ...p,
       alergenos: (alergenos as any[])
         .filter((a) => a.producto_id === p.id)
-        .map((a) => ({ nombre: a.nombre, icono: a.icono })),
+        .map((a) => ({ nombre: a.nombre, svg: a.svg })),
     }));
 
     res.json(productosConAlergenos);
@@ -66,6 +77,7 @@ app.get("/productos", async (req, res) => {
     res.status(500).json({ error: "Error al obtener los productos" });
   }
 });
+
 
 // --- Comunicación en tiempo real (Socket.io) ---
 io.on("connection", (socket) => {

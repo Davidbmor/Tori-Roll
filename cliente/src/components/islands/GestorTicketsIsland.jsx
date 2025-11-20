@@ -23,6 +23,7 @@ export default function GestorTicketsIsland() {
 
   function cambiarEstado(id, nuevoEstado) {
     socket.emit("actualizarEstado", { id, nuevoEstado });
+    
     setPedidos((prev) =>
       prev.map((p) => (p.id === id ? { ...p, estado: nuevoEstado } : p))
     );
