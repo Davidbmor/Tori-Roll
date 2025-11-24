@@ -2,11 +2,15 @@
 import Header from '../components/Header.astro';
 import PlateCard from '../components/PlateCard.astro';
 import Cart from '../components/Cart.astro';
+import { obtenerProductos } from '../lib/api.js';
 import '../assets/css/style.css';
 import MenuSection from '../components/MenuSection.astro';
+import ClientOrderGestor from '../components/ClientOrderGestor.astro';
+import ProductDesc from '../components/ProductDesc.astro';
+const productos = await obtenerProductos();
 ---
 
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -25,12 +29,41 @@ import MenuSection from '../components/MenuSection.astro';
 
     <section class="menu-view">
       <div class="menu-section-container">
-        <MenuSection section=""></MenuSection>
+        <MenuSection section="">
+            <h1 class="tittle-menu-section">PRODUCTOS</h1>
+            <div class="plate-cards-container">
+              <!-- He puesto any para que los reconozca el typscript,
+              en un futuro cuando esté hecha entera la estructura la forma correcta de hacer
+              esto es crear un tipo global en src/types/product.d.ts para que lo reconozca, 
+              porque si no ahora mismo puede entrar cualquier tipo de dato ahí -->
+              {productos.map((p : any) => (
+                <PlateCard 
+                  name={p.nombre} 
+                  amount={p.cantidad ?? 1} 
+                  img="/src/assets/img/sushi.webp"
+                />
+              ))}
+            </div>
+        </MenuSection>
+      
       </div>
     </section>
 
     <Cart />
 
-    <script type="module" src="/tal.js"></script>
+    <ClientOrderGestor />
+
+    <ProductDesc name="" description=""/>
+
+    <footer>
+      <div class="ClientOrderIcon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="wd-icon-receipts wd-icon" focusable="false" 
+          role="presentation" viewBox="0 0 24 24"><g fill-rule="nonzero" class="wd-icon-container"><path 
+          d="M12 12.5c0-.3.2-.5.5-.5h3c.3 0 .5.2.5.5v1c0 .3-.2.5-.5.5h-3c-.3 0-.5-.2-.5-.5v-1zm-4-3c0-.3.2-.5.5-.5h7c.3 0 
+          .5.2.5.5v1c0 .3-.2.5-.5.5h-7c-.3 0-.5-.2-.5-.5v-1zm0-3c0-.3.2-.5.5-.5h7c.3 0 .5.2.5.5v1c0 .3-.2.5-.5.5h-7c-.3 0-.5-.2-.5-.5v-1z" 
+          class="wd-icon-accent"/><path d="M4.8 21.4c-.4.3-.8.1-.8-.4V2.5c0-.3.2-.5.5-.5h15c.3 0 .5.2.5.5V21c0 .5-.4.7-.8.4L16 19l-3.7 2.8c-.2.1-.4.1-.6 
+          0L8 19l-3.2 2.4zM6 4v14l2-1.5 4 3 4-3 2 1.5V4H6z" class="wd-icon-fill"/></g></svg>
+      </div>
+    </footer>
   </body>
 </html>
