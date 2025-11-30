@@ -4,7 +4,6 @@ import PlateCard from "../components/PlateCard.astro";
 import Cart from "../components/Cart.astro";
 import { obtenerProductos } from "../lib/api.js";
 import "../assets/css/style.css";
-import "../assets/js/index.js"
 import OptionLeftNav from "../components/OptionLeftNav.astro";
 import MenuSection from "../components/MenuSection.astro";
 import ClientOrderGestor from "../components/ClientOrderGestor.astro";
@@ -31,29 +30,14 @@ const productos = await obtenerProductos();
       <section class="left-nav">
         <ul>
           <li class="selector"><a class="selector" href="">SUSHIS</a></li>
-          <OptionLeftNav idReference="" name="" />
+          <OptionLeftNav idReference="Sushi" name="sushis" />
+          <OptionLeftNav idReference="Carnes" name="Carnes" />
         </ul>
       </section>
 
       <section class="menu-view">
-        <MenuSection section="">
-          <h1 class="tittle-menu-section">PRODUCTOS</h1>
-          <div class="plate-cards-container">
-            <!-- He puesto any para que los reconozca el typscript,
-              en un futuro cuando esté hecha entera la estructura la forma correcta de hacer
-              esto es crear un tipo global en src/types/product.d.ts para que lo reconozca, 
-              porque si no ahora mismo puede entrar cualquier tipo de dato ahí -->
-            {
-              productos.map((p: any) => (
-                <PlateCard
-                  name={p.nombre}
-                  amount={p.cantidad ?? 1}
-                  img="/src/assets/img/sushi.webp"
-                />
-              ))
-            }
-          </div>
-        </MenuSection>
+        <MenuSection section="Sushi" idReference="Sushi"></MenuSection>
+        <MenuSection section="Carne" idReference="Carnes"></MenuSection>
       </section>
     </div>
 

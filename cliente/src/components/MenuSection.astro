@@ -1,21 +1,23 @@
 ---
 import PlateCard from "./PlateCard.astro";
-const { section } = Astro.props;
+const { section , idReference } = Astro.props;
 import { obtenerProductos } from "../lib/api.js";
 
 const productos = await obtenerProductos();
 ---
 
-<h1 class="tittle-menu-section">{section}</h1>
-<div class="plate-cards-container">
-  {
-    productos.map((p: any) => (
-      <PlateCard
-        name={p.nombre}
-        amount={p.cantidad ?? 1}
-        img="/src/assets/img/sushi.webp"
-        producto={p}
-      />
-    ))
-  }
+<div class="menu-section-container">
+  <h1 class="tittle-menu-section" id={idReference}>{section}</h1>
+  <div class="plate-cards-container">
+    {
+      productos.map((p: any) => (
+        <PlateCard
+          name={p.nombre}
+          amount={p.cantidad ?? 1}
+          img="/src/assets/img/sushi.webp"
+          producto={p}
+        />
+      ))
+    }
+  </div>
 </div>
