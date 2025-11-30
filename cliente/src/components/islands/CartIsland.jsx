@@ -10,9 +10,11 @@ function RemoveItem({ id }) {
   }
 
   return (
-    <button class="object-delete" onClick={remove}>
-      Eliminar
-    </button>
+    <div class="object-options">
+      <button class="object-delete" onClick={remove}>
+        Eliminar
+      </button>
+    </div>
   );
 }
 
