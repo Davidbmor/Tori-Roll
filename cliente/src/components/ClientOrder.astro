@@ -1,14 +1,22 @@
 ---
-import ClientOrderItem from "./ClientOrderItem.astro"
+import ClientOrderItem from "./ClientOrderItem.astro";
 ---
-
-<div class="ClientOrder">
-    <h1 class="ClientOrderNumber">Pedido número: <span class="number"></span></h1>
-    <table>
-            <tr>
-                <th>Plato</th>
-                <th>Cantidad</th>
-            </tr>
-            <ClientOrderItem name="" ammount="" />
-        </table>
+<div class="ClientOrderHeader">
+    <div class="cross close">
+        <span class="close"></span>
+        <span class="close"></span>
+    </div>
 </div>
+<div class="ClientOrder">
+    <h1 class="ClientOrderNumber">
+        Pedido número: <span class="number"></span>
+    </h1>
+    <table>
+        <tr>
+            <th>Plato</th>
+            <th>Cantidad</th>
+        </tr>
+        <ClientOrderItem name="" ammount="" />
+    </table>
+</div>
+

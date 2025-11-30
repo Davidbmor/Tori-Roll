@@ -1,11 +1,13 @@
 ---
 import AddToCartIsland from "./islands/AddToCartIsland.jsx";
 
-const { name, amount, img , producto} = Astro.props;
+const { name, amount, img, producto } = Astro.props;
 ---
 
 <div class="plate-card">
-  <div class="plate-img" style={`background-image: url(${img})`}></div>
+  <div class="plate-img">
+    <div class="alergies"></div>
+  </div>
   <div class="plate-details">
     <h2 class="plate-name">{name}</h2>
     <p class="plate-amount">Cantidad : {amount}</p>

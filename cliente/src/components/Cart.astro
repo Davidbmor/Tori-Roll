@@ -4,11 +4,13 @@ import CartIsland from "./islands/CartIsland.jsx";
 
 <div class="Carrito">
   <div class="Carrito-header">
-    <div class="cross">
-      <span></span>
-      <span></span>
+    <div class="cross close">
+      <span class="close"></span>
+      <span class="close"></span>
     </div>
   </div>
-
   <CartIsland client:load />
+  <div class="total">
+    <a class="order" href="#">Ordenar Comanda</a>
+  </div>
 </div>
