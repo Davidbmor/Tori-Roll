@@ -61,7 +61,7 @@ header {
             display: flex;
             justify-content: center;
             align-items: center;
-            border-radius: 20%;
+            border-radius: 20px;
             width: 90px;
             z-index: 1;
             height: 60px;
@@ -85,6 +85,7 @@ header {
 .menu-view {
     height: auto;
     margin-left: 15%;
+
     .menu-section-container {
         padding-top: 6vh;
         width: 90%;
@@ -93,7 +94,7 @@ header {
 
         .tittle-menu-section {
             color: #353535;
-            font-size: 5rem;
+            font-size: clamp(2.5rem, 0.714rem + 4.762vw, 5rem);
             position: relative;
         }
 
@@ -145,35 +146,42 @@ header {
                     position: relative;
 
                     .plate-name {
-                        font-size: 1.4rem;
+                        font-size: clamp(1rem, 0.714rem + 0.762vw, 1.4rem);
                         text-align: left;
                     }
 
                     .plate-buttons {
+                        margin-top: 10px;
                         width: 90%;
                         height: auto;
                         display: flex;
                         flex-flow: row nowrap;
                         justify-content: space-between;
-                        position: absolute;
                         bottom: 20px;
 
                         a {
                             text-decoration: none;
-                            padding: 11px;
                             border-radius: 20px;
+                            cursor: pointer;
                         }
 
                         .order {
                             background: #FF781E;
+                            border-radius: 20px;
                             color: white;
+                            padding: 11px;
                             background: linear-gradient(90deg, rgba(255, 120, 30, 1) 0%, rgba(255, 225, 31, 1) 100%);
                         }
 
                         .info {
+                            display: flex;
+                            flex-flow: row nowrap;
+                            justify-content: center;
+                            align-items: center;
                             border: 4px solid transparent;
                             border-image: linear-gradient(90deg, rgba(255, 120, 30, 1), rgba(255, 225, 31, 1)) 1;
                             color: #FF781E;
+                            padding: 0px 11px;
                             border-radius: 20px;
                         }
                     }
@@ -182,11 +190,13 @@ header {
         }
     }
 }
+
 .cross {
     width: 50px;
     height: 50px;
     cursor: pointer;
     position: relative;
+
     span {
         display: block;
         width: 50px;
@@ -205,6 +215,7 @@ header {
         transform: rotate(-45deg);
     }
 }
+
 .Carrito {
     top: 110px;
     right: 0;
@@ -214,11 +225,11 @@ header {
     background-color: #e7e7b1;
     display: none;
     flex-flow: column nowrap;
-    align-items: flex-end; 
+    align-items: flex-end;
     gap: 20px;
-    overflow-y: auto;   
+    overflow-y: auto;
     overflow-x: hidden;
-    
+
 
     .Carrito-header {
         width: 100%;
@@ -230,7 +241,7 @@ header {
 
     .object {
         flex: 1;
-        width: 80%; 
+        width: 80%;
         min-height: 150px;
         border-bottom-left-radius: 20px;
         border-top-left-radius: 20px;
@@ -285,28 +296,28 @@ header {
 
     .total {
         flex: 1;
-    width: 50%;
-    height: auto;
-    margin-top: 5%;
+        width: 50%;
+        height: auto;
+        margin-top: 5%;
 
-    a {
-        text-decoration: none;
-        padding: 11px;
-        border-radius: 20px;
-        font-weight: bolder;
-        font-size: 2rem;
-    }
+        a {
+            text-decoration: none;
+            padding: 11px;
+            border-radius: 20px;
+            font-weight: bolder;
+            font-size: 2rem;
+        }
 
-    .order {
-        background: #FF781E;
-        color: white;
-        background: linear-gradient(90deg, rgba(255, 120, 30, 1) 0%, rgba(255, 225, 31, 1) 100%);
+        .order {
+            background: #FF781E;
+            color: white;
+            background: linear-gradient(90deg, rgba(255, 120, 30, 1) 0%, rgba(255, 225, 31, 1) 100%);
+        }
     }
 }
-}
 
 
-.ticket-container{
+.ticket-container {
     height: auto;
     width: 90%;
     display: flex;
@@ -314,7 +325,7 @@ header {
     gap: 2rem;
 }
 
-.ticket{
+.ticket {
     padding-top: 1rem;
     padding-bottom: 1rem;
     height: auto;
@@ -325,57 +336,58 @@ header {
 
     display: flex;
     flex-direction: column;
-    align-items: center;     
-    justify-content: center; 
-    text-align: center;     
-    gap: 1rem;  
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 1rem;
 }
 
-.ticket-container{
+.ticket-container {
     display: flex;
     flex-flow: row nowrap;
     width: 80%;
     height: auto;
-    
+
 }
 
 
 .ticket-items {
-  border-collapse: collapse;
-  background: transparent;
+    border-collapse: collapse;
+    background: transparent;
 }
 
 .ticket-items th,
 .ticket-items td {
-  padding: 8px;
-  border-bottom: 1px dotted #000;
+    padding: 8px;
+    border-bottom: 1px dotted #000;
 }
 
 
 .estado-selector {
-  font-size: 20px;
-  padding: 12px 18px;
-  border-radius: 12px;
-  border: 2px solid #ccc;
-  background-color: white;
-  cursor: pointer;
-  font-weight: bold;
+    font-size: 20px;
+    padding: 12px 18px;
+    border-radius: 12px;
+    border: 2px solid #ccc;
+    background-color: white;
+    cursor: pointer;
+    font-weight: bold;
 }
 
 .estado-selector option[value="wait"] {
-  background-color: #e31f26;
-  color: white;
+    background-color: #e31f26;
+    color: white;
 }
 
 .estado-selector option[value="prep"] {
-  background-color: #f8ed43;
-  color: black;
+    background-color: #f8ed43;
+    color: black;
 }
 
 .estado-selector option[value="end"] {
-  background-color: #87c540;
-  color: black;
+    background-color: #87c540;
+    color: black;
 }
+
 .form-product {
     width: 450px;
     background: white;
@@ -385,7 +397,7 @@ header {
     display: flex;
     flex-direction: column;
     gap: 1.4rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -465,7 +477,7 @@ textarea {
     font-weight: 700;
     font-size: 1.1rem;
     color: white;
-    background: linear-gradient(90deg, rgba(255,120,30,1), rgba(255,225,31,1));
+    background: linear-gradient(90deg, rgba(255, 120, 30, 1), rgba(255, 225, 31, 1));
     transition: 0.3s;
 }
 
@@ -479,7 +491,7 @@ textarea {
     background: white;
     padding: 2rem;
     border-radius: 20px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .table-container h2 {
@@ -551,7 +563,7 @@ textarea {
 }
 
 .btn-edit {
-    background: linear-gradient(90deg, rgba(255,120,30,1), rgba(255,225,31,1));
+    background: linear-gradient(90deg, rgba(255, 120, 30, 1), rgba(255, 225, 31, 1));
     color: white;
 }
 
@@ -568,31 +580,35 @@ textarea {
     filter: brightness(1.1);
 }
 
-.flexible{
+.flexible {
     display: flex;
     flex-flow: row nowrap;
 }
 
-.left-nav{
+.left-nav {
     top: 110px;
     left: 0;
     width: 15%;
     height: 80vh;
     background-color: #353535;
-    padding-left: 2.5rem;
+    padding-left: 1%;
     position: fixed;
-    ul{
-        margin-top: 15px;
+
+    ul {
+        margin-top: 2%;
         list-style-type: none;
-        li{
-            padding:10px 0px;
+
+        li {
+            padding: 10px 0px;
             padding-left: 25px;
         }
-        li:first-child{
+
+        li:first-child {
             background-color: #87c540;
         }
     }
-    a{
+
+    a {
         color: white;
         text-decoration: none;
         font-weight: bolder;
@@ -600,24 +616,24 @@ textarea {
     }
 }
 
-footer{
+footer {
     position: fixed;
     bottom: 0;
-    right: 45;
+    right: 45px;
     cursor: pointer;
 
-    .ClientOrderIcon{
+    .ClientOrderIcon {
         height: 90px;
         width: 70px;
-        background-color: #87c540;
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
         display: flex;
         flex-flow: row nowrap;
         justify-content: center;
         align-items: center;
-        background: linear-gradient(90deg, rgba(255,120,30,1), rgba(255,225,31,1));
-        svg{
+        background: linear-gradient(90deg, rgba(255, 120, 30, 1), rgba(255, 225, 31, 1));
+
+        svg {
             width: 50px;
             height: 50px;
             fill: white;
@@ -626,20 +642,22 @@ footer{
 }
 
 
-.ClientOrderGestor{
+.ClientOrderGestor {
     width: 85%;
     height: 90%;
     background-color: #d1b1e7;
     position: fixed;
     top: 110px;
     right: 0;
-    overflow-y: auto;   
+    overflow-y: auto;
     overflow-x: hidden;
     display: none;
-    .ClientOrderContainer{
+
+    .ClientOrderContainer {
         padding: 2rem;
-        .ClientOrder{
-            table{
+
+        .ClientOrder {
+            table {
                 margin-left: 3rem;
             }
         }

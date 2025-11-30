@@ -8,8 +8,8 @@ export default function AddToCartIsland({ producto }) {
   }
 
   return (
-    <button onClick={add} class="order">
+    <a onClick={add} class="order">
       <i class="fa-solid fa-plus"></i> Pedir
-    </button>
+    </a>
   );
 }
