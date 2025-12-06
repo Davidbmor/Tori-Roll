@@ -7,10 +7,13 @@ import { randomUUID } from "crypto";
 import { createConnection } from "./src/config/database.js";
 import { ProductoModel } from "./src/models/Producto.js";
 import { AlergenoModel } from "./src/models/Alergeno.js";
+import { UsuarioModel } from "./src/models/Usuario.js";
 import { ProductoController } from "./src/controllers/ProductoController.js";
 import { AlergenoController } from "./src/controllers/AlergenoController.js";
+import { UsuarioController } from "./src/controllers/UsuarioController.js";
 import { createProductoRoutes } from "./src/routes/productoRoutes.js";
 import { createAlergenoRoutes } from "./src/routes/alergenoRoutes.js";
+import { createUsuarioRoutes } from "./src/routes/usuarioRoutes.js";
 
 dotenv.config();
 
@@ -28,12 +31,15 @@ const db = await createConnection();
 
 const productoModel = new ProductoModel(db);
 const alergenoModel = new AlergenoModel(db);
+const usuarioModel = new UsuarioModel(db);
 
 const productoController = new ProductoController(productoModel);
 const alergenoController = new AlergenoController(alergenoModel);
+const usuarioController = new UsuarioController(usuarioModel);
 
 app.use(createProductoRoutes(productoController));
 app.use(createAlergenoRoutes(alergenoController));
+app.use(createUsuarioRoutes(usuarioController));
 
 interface Pedido {
   id: string;
